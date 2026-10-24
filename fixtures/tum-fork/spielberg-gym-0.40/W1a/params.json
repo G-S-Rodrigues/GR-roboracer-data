@@ -1,0 +1,12 @@
+{
+ "veh": "gym",
+ "margin": 0.4,
+ "h": 0.5,
+ "snr": 0,
+ "eps": 0.02,
+ "W": 2.0,
+ "extra": 0.0,
+ "scale": 0.98,
+ "tyre": "B",
+ "width_opt": 1.11
+}
