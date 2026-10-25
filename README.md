@@ -1,5 +1,7 @@
 # GR-roboracer-data
 
+Licence: GPL-3.0 (`LICENSE`); the Spielberg data derives from a GPL-3.0 work, see `NOTICE.md`.
+
 Data for GR-roboracer and its TUM fork (`GR-roboracer-global_racetrajectory_optimization`), kept out
 of both code repos and pinned by SHA as a submodule (`third_party/GR-roboracer-data`).
 
@@ -25,6 +27,8 @@ produced in GR-roboracer's scratch harness `.scratch/part8b-harness/p8b-step1/` 
 | `W1a/result.json`, `W1a/params.json` | same | the harness's record of W1a |
 | `S1c/{w0,lam_x0,lam_g0}.csv` | `SEED/S1c/export/` | the converged seeded state: S1c = `P8B_SEED=1 P8B_SEED_MU=1e-3`, threads 3, `SEED/s.sh`'s `solve3.py` arguments; Optimal, 1715 iterations, lap_est 32.32678506 s. Its `states.csv` is byte-identical to W1a's |
 | `S1c/result.json`, `S1c/params.json` | `SEED/S1c/` | the harness's record |
+| `x0_seed.csv` | `STEP1/` (the fork's Step 1; dumped by the harness before the solve, `%.17g`, byte-identical over 3 runs) | the seeded initial guess `w0` (16301 values) the fork's `build_seed_x0` must reproduce (TUMFORK-1030) |
+| `x0_seed.frame.txt` | same | its frame inputs: `N=679`, `h`, `Lc`, the seed path, `size` |
 
 The exact S1c command was not recorded when it ran; the reconstruction above is the only route that
 could have produced it (`SEED/run_tum_w.py`), and it is re-run by the fork's Step 1 before it is
@@ -47,4 +51,6 @@ acb9c569b1ee71135ad524d5a16424ba48e10bea2ba8ca967e60f10a45152849  ./W1a/states.c
 06e4a7e780fb3676ccb39123ce21a3c04a610e6396c9714a533843a4d68daed0  ./inputs/veh_dyn_info/ggv.csv
 8d19be0441dccfd969e1d898f2adb486efba237bd4a004282b7197d39811655b  ./seed/gym-0.4.csv
 959ec8868937567f55fcc47495acacba216fb44f2fca23a3d83b3bdde7a8f8f0  ./track.csv
+3713016346fe5ce7b326d40d253f81b0f73d25e05eba1cbc21635119ba062544  ./x0_seed.csv
+7c8b58933b0cba11eac347d5df1103f347bf7710d3f1e90999dd7d4f029e6948  ./x0_seed.frame.txt
 ```
