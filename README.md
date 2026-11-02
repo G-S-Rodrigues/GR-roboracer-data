@@ -7,8 +7,12 @@ of both code repos and pinned by SHA as a submodule (`third_party/GR-roboracer-d
 
 Layout (adjust only with a note here):
 
-- `tracks/<Track>/maps/...` and `tracks/<Track>/racelines/<vehicle-version>/...`: the tracks, their
-  SLAM maps and racelines. Not populated yet.
+- `tracks/<Map>/maps/<Map>/...` and `tracks/<Map>/racelines/<vehicle-version>/...`: the tracks, their
+  SLAM maps and racelines. `<Map>` is the scenario's `environment.map` with its case kept (`Spielberg`,
+  `Porto`). It appears twice under `maps/` because the gym and the launch both find a map as
+  `<map_directory>/<Map>/`, and a scenario's `map_directory` is `tracks/<Map>/maps`. A raceline
+  record's `track:` field stays the lower-case track-file stem (`spielberg`); only the folder is keyed
+  by the map name.
 - `fixtures/tum-fork/...`: inputs, goldens and solver states the fork's tests read.
 
 ## fixtures/tum-fork/spielberg-gym-0.40
@@ -53,4 +57,45 @@ acb9c569b1ee71135ad524d5a16424ba48e10bea2ba8ca967e60f10a45152849  ./W1a/states.c
 959ec8868937567f55fcc47495acacba216fb44f2fca23a3d83b3bdde7a8f8f0  ./track.csv
 3713016346fe5ce7b326d40d253f81b0f73d25e05eba1cbc21635119ba062544  ./x0_seed.csv
 7c8b58933b0cba11eac347d5df1103f347bf7710d3f1e90999dd7d4f029e6948  ./x0_seed.frame.txt
+```
+
+## tracks/
+
+Path history: before GR-roboracer's D1 change (merge commit recorded in its ADR 0008),
+`tracks/<Map>/maps/<Map>/` was `config/scenarios/maps/<Map>/` and `tracks/<Map>/racelines/` was
+`config/racelines/<track>/`. Some map files still carry header comments that cite the old paths; they
+are the command as run, and the records pin their SHA256, so they are left unedited.
+
+Spielberg's regeneration root for `sim.track_importer` (see `tracks/Spielberg/maps/Spielberg/NOTICE.md`)
+is `tracks/Spielberg/maps` (`--maps-root`).
+
+sha256 of the moved files, byte for byte as they were in GR-roboracer `config/` (the raceline `.yaml`
+records are excluded: they were regenerated with new path strings, and every raceline `.csv` below is
+byte-identical to its predecessor):
+
+```
+199bdc2c972364ddd2aacdf2e483a1994c3db1828f80289791646775a1495f08  tracks/Porto/maps/Porto/NOTICE.md
+404a72551715fbf48ebcbd5b3b4093fcdf62934fb815898b144a017fe2c02efe  tracks/Porto/maps/Porto/Porto.pgm
+b78d687bae1758fdd62070b6da30c77a817bb102926630d973503035584d4d0d  tracks/Porto/maps/Porto/Porto.yaml
+5dc9485b45d91f023047b75129be840a0678f11bc15776e7dbf9ec92032565a1  tracks/Spielberg/maps/Spielberg/NOTICE.md
+c3e2a362ce5faa5180317a7d5812be4c7e3ae22bb5c8b0d3f688f99fb6081cbb  tracks/Spielberg/maps/Spielberg/Spielberg.png
+b0367d0b806d46fd58588213e50b726150772dfea1d4c43bf243b3691117bffc  tracks/Spielberg/maps/Spielberg/Spielberg.yaml
+5b1962efc479dc28f2960390ebf20cf753ba2bc60fcaf76f13b61bdd51311cda  tracks/Spielberg/maps/Spielberg/Spielberg_centerline.csv
+214ffcdb0d35acdeaeb1eea5d795a0913e158349cd364b674cd56bcf10637d60  tracks/Spielberg/maps/Spielberg/Spielberg_raceline.csv
+5b4ec525f900ddc715ffdd8671f1a53f3a95e53efb24459fce3c8f3e5b66414a  tracks/Spielberg/maps/Spielberg/mola/Spielberg.mm
+e308eea70a24baa79c8f60844c5b5556c2b2c5c06e409ca33f88e35dd44402e0  tracks/Spielberg/maps/Spielberg/mola/Spielberg.yaml
+c89d8afa6e4d06a3939000944fa3a6b73d6e6e142ef023fcd1ca49991190fbca  tracks/Spielberg/maps/Spielberg/mola/Spielberg_grid.png
+250bdf4ae6dc5d138b5f88d1e62c8c22066115e76cc158dd127f675cb07ba0c6  tracks/Spielberg/maps/Spielberg/mola/Spielberg_grid.yaml
+0344b011a2a0211b0e8c38ffc11d679b0dec437d6c6241019b1fcb70e0567145  tracks/Spielberg/maps/Spielberg/slam/Spielberg.png
+be4cc60b62e68db90b029ff9172590e06fc57d7b62c67cc30ec9215031b40b5c  tracks/Spielberg/maps/Spielberg/slam/Spielberg.yaml
+aa95588572749ad0556abe32e8a216f0694e4b27542020f50e7c3f1d84da2e7c  tracks/Spielberg/maps/Spielberg/slam_0020/Spielberg.png
+92b64cec807419d9b681289e56dc963a9d3d0f8ca7564fa9916dd4cfbebd3d67  tracks/Spielberg/maps/Spielberg/slam_0020/Spielberg.yaml
+b679f6600383014588e8d9ac8a6e99ee07cea3ea324dee51ed1feeb49af29f24  tracks/Spielberg/maps/Spielberg/slam_0025/Spielberg.png
+9897b12b28d9e3fbda4d475ec083bebd3997005f248872e9216148c27d9e58db  tracks/Spielberg/maps/Spielberg/slam_0025/Spielberg.yaml
+135faf4b08a7f6dcc475823d34b1572d09e669ade7108b5d68da7f8f5b8f195a  tracks/Spielberg/racelines/f1tenth-default-v1/reference/tum_mintime.csv
+e7bbdaaa7e4fe1ec60cbb9a8e3fb045899ab7402de69cc4f7a43c008958385ee  tracks/Spielberg/racelines/f1tenth-default-v1/tum_mincurv_iqp.csv
+22e9218a9749d6e499fe2a79b2786e52849158b940d0ff1b03d096ab47504e9e  tracks/Spielberg/racelines/f1tenth-default-v1/tum_mintime.csv
+8d19be0441dccfd969e1d898f2adb486efba237bd4a004282b7197d39811655b  tracks/Spielberg/racelines/f1tenth-gym-limits-v1/reference/tum_mintime.csv
+501ce6d327984de82f5ab6212dc97da4b554f5b91221733d11998218cad5e8c6  tracks/Spielberg/racelines/f1tenth-gym-limits-v1/tum_mincurv_iqp.csv
+e68d5ca3b08d35af103a42606fe176d64639e2dbce3794713994511f29286905  tracks/Spielberg/racelines/f1tenth-gym-limits-v1/tum_mintime.csv
 ```
