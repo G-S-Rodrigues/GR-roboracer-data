@@ -3,14 +3,14 @@ track: spielberg
 vehicle_version: f1tenth-default-v1
 optimizer: tum_mincurv_iqp
 source:
-  path: config/scenarios/maps/Spielberg/slam/Spielberg.yaml
+  path: third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/slam/Spielberg.yaml
   sha256: be4cc60b62e68db90b029ff9172590e06fc57d7b62c67cc30ec9215031b40b5c
   image_sha256: 0344b011a2a0211b0e8c38ffc11d679b0dec437d6c6241019b1fcb70e0567145
 ground_truth:
   path: config/tracks/spielberg.yaml
   sha256: 712d2403909da9a8107ffc968d69cf6863e7dbd80fce4a2f74a5b4d9f9f4dcf8
 ground_truth_map:
-  path: config/scenarios/maps/Spielberg/Spielberg.yaml
+  path: third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/Spielberg.yaml
   sha256: b0367d0b806d46fd58588213e50b726150772dfea1d4c43bf243b3691117bffc
   image_sha256: c3e2a362ce5faa5180317a7d5812be4c7e3ae22bb5c8b0d3f688f99fb6081cbb
 vehicle:
@@ -19,7 +19,7 @@ vehicle:
   ggv_sha256: 0ecbace704e9c30cfef04a08f6d43e8c99e4c85ad135ba0bd7b2497ed6d5c5c9
   ax_max_machines_sha256: 0f17ea3c0efd599026ef7bebb1fd3325da39cf81689f8f7ad3bf473449b1bbd8
 code:
-  raceline/__main__.py: b76b3eeae7aa274feaba2fe2744e4bd2523c3bc0
+  raceline/__main__.py: b31f9e8a73260f2b52ffbe5bee535a44267fe9d5
   raceline/extract.py: 9ba6b219cd34d0a72d6253b0267d47529c30b4c0
   raceline/geometry.py: 4c585f7c0f19531314025a69f0401c4ccc41e6b1
   raceline/optimize.py: 97f8053fa1a6caaaf2831a34d56df6716a9c0e65
@@ -80,7 +80,8 @@ verdict:
       governs: 18
       polygon_min: 0.28190071371761366
       cells_min: 0.31963001449078926
-command: python -m raceline --map config/scenarios/maps/Spielberg/slam/Spielberg.yaml
+command: python -m raceline --map third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/slam/Spielberg.yaml
   --walls observed --start-pose 0 0 -2.879 --direction cw --ground-truth-track config/tracks/spielberg.yaml
-  --ground-truth-map config/scenarios/maps/Spielberg/Spielberg.yaml --vehicle config/vehicles/f1tenth_default.yaml
-  --optimizer tum_mincurv_iqp --timeout 1800
+  --ground-truth-map third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/Spielberg.yaml
+  --vehicle config/vehicles/f1tenth_default.yaml --optimizer tum_mincurv_iqp --timeout
+  1800
