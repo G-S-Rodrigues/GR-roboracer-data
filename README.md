@@ -61,7 +61,7 @@ acb9c569b1ee71135ad524d5a16424ba48e10bea2ba8ca967e60f10a45152849  ./W1a/states.c
 
 ## tracks/
 
-Path history: before GR-roboracer's D1 change (merge commit recorded in its ADR 0008),
+Path history: before GR-roboracer's D1 change (see GR-roboracer ADR 0009),
 `tracks/<Map>/maps/<Map>/` was `config/scenarios/maps/<Map>/` and `tracks/<Map>/racelines/` was
 `config/racelines/<track>/`. Some map files still carry header comments that cite the old paths; they
 are the command as run, and the records pin their SHA256, so they are left unedited.
