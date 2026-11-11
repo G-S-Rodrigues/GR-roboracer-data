@@ -20,7 +20,7 @@ vehicle:
   ggv_sha256: 06e4a7e780fb3676ccb39123ce21a3c04a610e6396c9714a533843a4d68daed0
   ax_max_machines_sha256: 1cf5f7b61a56f439cde3cf503acc1939dff7b4f66841b015f533fb1b35f8da3e
 code:
-  raceline/__main__.py: 6c2c56de80a4a71745a70743bf0971e0efdf6912
+  raceline/__main__.py: 4587896691c749064f5115c1a407b4c7c768832b
   raceline/extract.py: 9ba6b219cd34d0a72d6253b0267d47529c30b4c0
   raceline/geometry.py: 4c585f7c0f19531314025a69f0401c4ccc41e6b1
   raceline/optimize.py: c3986541a4b5d582c4ae6022782a507ec0cb7331
