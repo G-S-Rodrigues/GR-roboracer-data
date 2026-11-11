@@ -8,7 +8,7 @@ source:
   image_sha256: 404a72551715fbf48ebcbd5b3b4093fcdf62934fb815898b144a017fe2c02efe
 ground_truth:
   path: config/tracks/porto.yaml
-  sha256: ae28d248488078f5708c99ed83ed1ea925f6b6c260df7713a3b11ddb814d1a41
+  sha256: 63ed8d5203db2de16cf7751a176669474e81d84326e734f9a4cc037dc29c290f
 ground_truth_map:
   path: third_party/GR-roboracer-data/tracks/Porto/maps/Porto/Porto.yaml
   sha256: b78d687bae1758fdd62070b6da30c77a817bb102926630d973503035584d4d0d
