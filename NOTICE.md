@@ -28,6 +28,8 @@ The same upstream revision is referenced, not copied, by GR-roboracer as the sub
 `AutoDRIVE-Ecosystem/AutoDRIVE-RoboRacer-Racetracks` at `cf3cf1e5d37489f4768c8041706e53977e4d6bc7`,
 directory `Legacy Tracks/Porto Track/`, licensed **BSD-2-Clause**. This is a separate licence from the
 repository's GPL-3.0; the upstream notice is kept here and in `tracks/Porto/maps/Porto/NOTICE.md`.
+Only `Porto.pgm` and `Porto.yaml` there are upstream's; `slam/` was built by this stack in the AutoDRIVE
+sim and is not covered by the BSD-2-Clause notice below.
 
 ```
 BSD 2-Clause License
