@@ -21,7 +21,7 @@ vehicle:
   dynamics_sha256: ae582d4face0de51aa94eebec0c85186d58a857006933c1aec9a7a2a107ba1e0
   tyres_sha256: be0fe671b1476696396f1220d84293b00a38467c81133f1f64529c2d26618a3d
 code:
-  raceline/__main__.py: 080017c512d845e22e9124c33db6a1de1d1105bb
+  raceline/__main__.py: 3e4b1524c3f4ba1aea7dbeefdb51c0edd086d5f6
   raceline/extract.py: 9ba6b219cd34d0a72d6253b0267d47529c30b4c0
   raceline/geometry.py: 4c585f7c0f19531314025a69f0401c4ccc41e6b1
   raceline/optimize.py: c3986541a4b5d582c4ae6022782a507ec0cb7331
@@ -143,8 +143,9 @@ verdict:
 solver:
   status: Solve_Succeeded
   iterations: 143
-  wall_s: 1.5673279089969583
-command: python -m raceline --map third_party/GR-roboracer-data/tracks/Porto/maps/Porto/Porto.yaml --walls observed
-  --start-pose 0 0 3.14159 --direction cw --ground-truth-track config/tracks/porto.yaml
-  --ground-truth-map third_party/GR-roboracer-data/tracks/Porto/maps/Porto/Porto.yaml --vehicle config/vehicles/autodrive_roboracer_fast.yaml
-  --optimizer tum_mintime --reprofile-speed --timeout 1800
+  wall_s: 1.7415808330115397
+command: python -m raceline --map third_party/GR-roboracer-data/tracks/Porto/maps/Porto/Porto.yaml
+  --walls observed --start-pose 0 0 3.14159 --direction cw --ground-truth-track config/tracks/porto.yaml
+  --ground-truth-map third_party/GR-roboracer-data/tracks/Porto/maps/Porto/Porto.yaml
+  --vehicle config/vehicles/autodrive_roboracer_fast.yaml --optimizer tum_mintime
+  --reprofile-speed --timeout 1800 --out-dir third_party/GR-roboracer-data/tracks
