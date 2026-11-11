@@ -115,3 +115,24 @@ not the current ones. `sha256sum` from the repo root:
 29818599cc8d1dff4c4a28340b35b956dc0643f1e823cbf6ef5d8ccf4282ac22  tracks/Porto/maps/Porto/slam/Porto.png
 1abace1797b9fa54d760cc4a3f3e04b07156460a467ae006e0fae5434ef70d64  tracks/Porto/maps/Porto/slam/Porto.yaml
 ```
+
+### tracks/Porto/maps/Porto/mola
+
+MOLA-LO's map of Porto, built by this stack in the AutoDRIVE sim. Produced 2026-11-11 at GR-roboracer commit
+`3a084e0` (branch `1v-fix-b`) by `scripts/autodrive_qualify.sh --case mola_map --sim container`, then copied from
+the worktree's `.scratch-out/autodrive_mola_map/Porto.{mm,yaml}` and `Porto_grid.{png,yaml}`. The provenance
+`Porto.yaml` is the generated file, unedited: its `command:` names the `.scratch-out` stem the run used, not this
+path. One lap, 17.85 s in the sim, 0 collisions, no stale-input latch.
+
+Scores against the official `Porto.pgm` (`map_to_wall`, 1712 wall cells), at the provenance `T_map_mola`: median
+0.206 m, p95 0.696 m, max 0.825 m. After a best-fit alignment: median 0.045 m, p95 0.116 m, max 0.196 m. The
+difference is `T`: it carries MOLA's 0.75 m / 1.19 deg launch-slip offset. Launch wheelspin makes `/odom` read about
+1.8x the truth in the first second (GR-roboracer run report 1V-fix-b-b6-legwork), and MOLA anchors on it. `sha256sum`
+from the repo root:
+
+```
+7adc2eebc1e8c7cac7f55a42a5f7e14d05d0aef8a5fa4f7fb009e4f60a3daaac  tracks/Porto/maps/Porto/mola/Porto.mm
+e64564a05e46ce2c74606c319ebf860d96459a3160ca7eddb3a53b034c0b4524  tracks/Porto/maps/Porto/mola/Porto.yaml
+45fa9436b73cfb0706f88ce44166e443b9d795233b0cd4641271ca8f75df8503  tracks/Porto/maps/Porto/mola/Porto_grid.png
+bc428479c57fe5837af0f657ae067269f5e28e7ddedd21d24bf23c9bde862969  tracks/Porto/maps/Porto/mola/Porto_grid.yaml
+```

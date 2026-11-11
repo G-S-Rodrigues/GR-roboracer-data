@@ -1,0 +1,28 @@
+# MOLA-LO's map of Porto, built by one mapping lap; see the plan.
+# Regenerate (dev container, from /ws, after a colcon build):
+#   ./scripts/mola_map_track.sh config/scenarios/porto.yaml /ws/.scratch/1v-fix-b/.scratch-out/autodrive_mola_map/Porto 42
+# T_map_mola is the /ground_truth/odom pose at the stamp (1794414768.724816) of MOLA's
+# first processed scan, used only to score the run against ground truth.
+# The stamp is the simplemap's first keyframe.
+command: ./scripts/mola_map_track.sh config/scenarios/porto.yaml /ws/.scratch/1v-fix-b/.scratch-out/autodrive_mola_map/Porto
+  42
+scenario: config/scenarios/porto.yaml
+seed: 42
+time_scale: 1.0
+mola_version: 3.3.0
+mp2p_icp_version: 3.0.0
+T_map_mola:
+  x: -5.8476
+  y: 1.9616
+  z: 0.074
+  yaw: 0.00287
+T_source: first_processed_scan
+T_stamp: 1794414768.724816
+T_stamp_source: simplemap_first_keyframe
+mm_sha256: 7adc2eebc1e8c7cac7f55a42a5f7e14d05d0aef8a5fa4f7fb009e4f60a3daaac
+mm_bytes: 4618
+loop_closure: false
+grid_image: Porto_grid.png
+grid_sha256: 45fa9436b73cfb0706f88ce44166e443b9d795233b0cd4641271ca8f75df8503
+grid_bytes: 44451
+grid_pipeline: config/localization/mola_sm2grid.yaml
