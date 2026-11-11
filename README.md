@@ -99,3 +99,19 @@ e7bbdaaa7e4fe1ec60cbb9a8e3fb045899ab7402de69cc4f7a43c008958385ee  tracks/Spielbe
 501ce6d327984de82f5ab6212dc97da4b554f5b91221733d11998218cad5e8c6  tracks/Spielberg/racelines/f1tenth-gym-limits-v1/tum_mincurv_iqp.csv
 e68d5ca3b08d35af103a42606fe176d64639e2dbce3794713994511f29286905  tracks/Spielberg/racelines/f1tenth-gym-limits-v1/tum_mintime.csv
 ```
+
+### tracks/Porto/maps/Porto/slam
+
+Porto's survey grid for `pose_source:=amcl`, built by this stack in the AutoDRIVE sim (not upstream's).
+Produced 2026-11-11 at GR-roboracer commit `0c423b6` (branch `1v-fix-b`) by
+`scripts/autodrive_qualify.sh --domain 64 --case survey --sim container`, then copied from the worktree's
+`.scratch-out/autodrive_survey/Porto.{png,yaml}`; the yaml carries a provenance header above the mapper's
+own body. Against the official `Porto.pgm` (`map_to_wall`, 2239 wall cells): median 0.0501 m, p95 0.1229 m,
+max 0.195 m; survey lap 14.08 s, 0 collisions, no stale-input latch. `tracks/Porto/maps/Porto/NOTICE.md`
+changed after the D1 move (it now names `slam/`), so its line in the list above records the moved bytes,
+not the current ones. `sha256sum` from the repo root:
+
+```
+29818599cc8d1dff4c4a28340b35b956dc0643f1e823cbf6ef5d8ccf4282ac22  tracks/Porto/maps/Porto/slam/Porto.png
+1abace1797b9fa54d760cc4a3f3e04b07156460a467ae006e0fae5434ef70d64  tracks/Porto/maps/Porto/slam/Porto.yaml
+```

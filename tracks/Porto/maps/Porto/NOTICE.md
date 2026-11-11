@@ -33,6 +33,13 @@ The gym cannot run this directory as it is: its track loader raises "At least ce
 expected" because there is no `Porto_centerline.csv` (f1tenth_gym_jax `track.py`, the
 `<stem>_centerline.csv` branch), and the gym importer's `Porto.yaml` would collide with the official one.
 
+## slam/
+
+`slam/Porto.{png,yaml}` is not upstream's. It is the survey grid this stack built in the AutoDRIVE sim on
+2026-11-11 (GR-roboracer commit `0c423b6`, `scripts/autodrive_qualify.sh --case survey`), and its header
+names the command and the measured error against `Porto.pgm`. The BSD-2-Clause licence below covers the
+official map only; sha256 of the two files is in the repository README.
+
 ## Licence
 
 <!-- LICENSE begin -->

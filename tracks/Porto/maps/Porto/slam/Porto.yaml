@@ -1,0 +1,30 @@
+# Porto's committed occupancy grid: what nav2_map_server serves to nav2_amcl
+# (pose_source:=amcl) on the AutoDRIVE Porto scenario. A *survey*, not a SLAM
+# result: slam_toolbox's mapper lays /scan at the exact poses with scan
+# matching off (config/localization/slam_toolbox_survey_truth.yaml), so the
+# grid is the official map's walls expressed as the sensor sees them.
+#
+# Produced 2026-11-11 at GR-roboracer commit 0c423b6 (branch 1v-fix-b), in the
+# dev container, by:
+#
+#   scripts/autodrive_qualify.sh --domain 64 --case survey --sim container
+#
+# (--case survey runs tests/system/test_sim_3770_porto_survey_map.py), which
+# wrote $AUTODRIVE_OUT/Porto.{png,yaml} = .scratch-out/autodrive_survey/Porto.*
+# in the worktree. The png was copied here byte for byte; the yaml is the
+# mapper's own, unedited below this header. Committed at
+# tracks/Porto/maps/Porto/slam/Porto.{png,yaml} (before D1 it would have been
+# config/scenarios/maps/Porto/slam/Porto.*). Which scans the async mapper takes
+# is not deterministic, so two runs differ.
+#
+# Measured against the official tracks/Porto/maps/Porto/Porto.pgm (map_to_wall,
+# 2239 wall cells): median 0.0501 m, p95 0.1229 m, max 0.195 m, signed median
+# -0.045 m. The survey lap: 14.08 s stack / 13.75 s sim, 0 collisions, no
+# stale-input latch, 1407 safety samples all REASON_NONE.
+image: Porto.png
+mode: trinary
+resolution: 0.050
+origin: [-9.978, -2.505, 0]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196
