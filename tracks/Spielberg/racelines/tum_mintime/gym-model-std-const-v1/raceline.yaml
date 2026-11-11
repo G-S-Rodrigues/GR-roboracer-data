@@ -1,16 +1,17 @@
 format_version: 1
 track: spielberg
 vehicle_version: f1tenth-gym-limits-v1
+limit_set: gym-model-std-const-v1
 optimizer: tum_mintime
 source:
-  path: third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/slam/Spielberg.yaml
+  path: third_party/GR-roboracer-data/tracks/Spielberg/maps/slam_toolbox/res_0050/Spielberg.yaml
   sha256: be4cc60b62e68db90b029ff9172590e06fc57d7b62c67cc30ec9215031b40b5c
   image_sha256: 0344b011a2a0211b0e8c38ffc11d679b0dec437d6c6241019b1fcb70e0567145
 ground_truth:
   path: config/tracks/spielberg.yaml
   sha256: 712d2403909da9a8107ffc968d69cf6863e7dbd80fce4a2f74a5b4d9f9f4dcf8
 ground_truth_map:
-  path: third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/Spielberg.yaml
+  path: third_party/GR-roboracer-data/tracks/Spielberg/Spielberg.yaml
   sha256: b0367d0b806d46fd58588213e50b726150772dfea1d4c43bf243b3691117bffc
   image_sha256: c3e2a362ce5faa5180317a7d5812be4c7e3ae22bb5c8b0d3f688f99fb6081cbb
 vehicle:
@@ -21,10 +22,10 @@ vehicle:
   dynamics_sha256: 871ca6afe82117166c5bde9b975be141cf6c53aae65ae50d8501679201396d95
   tyres_sha256: be0fe671b1476696396f1220d84293b00a38467c81133f1f64529c2d26618a3d
 code:
-  raceline/__main__.py: b31f9e8a73260f2b52ffbe5bee535a44267fe9d5
+  raceline/__main__.py: 6c2c56de80a4a71745a70743bf0971e0efdf6912
   raceline/extract.py: 9ba6b219cd34d0a72d6253b0267d47529c30b4c0
   raceline/geometry.py: 4c585f7c0f19531314025a69f0401c4ccc41e6b1
-  raceline/optimize.py: 97f8053fa1a6caaaf2831a34d56df6716a9c0e65
+  raceline/optimize.py: c3986541a4b5d582c4ae6022782a507ec0cb7331
   raceline/track.py: a9f334b165f2bb0d5e24b5e8f1371388b7459510
   raceline/tum.py: 605d04c92b05ddda157872287999c7a434ba79c1
   raceline/vehicle.py: e02f20a99b6836d9423747051717104e558eb97b
@@ -80,7 +81,7 @@ parameters:
     threads: 3
     exact_arc_length: true
   reference:
-    path: third_party/GR-roboracer-data/tracks/Spielberg/racelines/f1tenth-gym-limits-v1/reference/tum_mintime.csv
+    path: third_party/GR-roboracer-data/tracks/Spielberg/racelines/tum_mintime/gym-model-std-const-v1/reference.csv
     sha256: 8d19be0441dccfd969e1d898f2adb486efba237bd4a004282b7197d39811655b
     margin: 0.4
     passes: 2
@@ -122,9 +123,9 @@ verdict:
 solver:
   status: Solve_Succeeded
   iterations: 1518
-  wall_s: 226.97725179100235
-command: python -m raceline --map third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/slam/Spielberg.yaml
+  wall_s: 255.96522427700256
+command: python -m raceline --map third_party/GR-roboracer-data/tracks/Spielberg/maps/slam_toolbox/res_0050/Spielberg.yaml
   --walls observed --start-pose 0 0 -2.879 --direction cw --ground-truth-track config/tracks/spielberg.yaml
-  --ground-truth-map third_party/GR-roboracer-data/tracks/Spielberg/maps/Spielberg/Spielberg.yaml
-  --vehicle config/vehicles/f1tenth_gym_limits.yaml --optimizer tum_mintime --timeout
-  3000
+  --ground-truth-map third_party/GR-roboracer-data/tracks/Spielberg/Spielberg.yaml
+  --vehicle config/vehicles/f1tenth_gym_limits.yaml --limit-set gym-model-std-const-v1
+  --optimizer tum_mintime --timeout 3000
