@@ -15,7 +15,7 @@ ground_truth_map:
   image_sha256: 404a72551715fbf48ebcbd5b3b4093fcdf62934fb815898b144a017fe2c02efe
 vehicle:
   path: config/vehicles/autodrive_roboracer_fast.yaml
-  sha256: 75de6c0a2efccfbec5a86b5ed4cef2638ceb7c82ef756c29e9ddaccf99330fdf
+  sha256: 04af38e0515fb8d06ee2611e5594d0c18cb1addce34d8f65613bded3f6157c05
   ggv_sha256: 51783356985fd5f5643343be4723abb63d4c22c1c225c3d61190867110484260
   ax_max_machines_sha256: 782dd9010ec88600d42342507717858e5c67a27a36f1afbd840b066e108138fd
   dynamics_sha256: ae582d4face0de51aa94eebec0c85186d58a857006933c1aec9a7a2a107ba1e0
